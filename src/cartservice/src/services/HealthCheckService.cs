@@ -11,7 +11,9 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+export AWS_ACCESS_KEY_ID="ASIA2UC3BSSJS6"
+export AWS_SECRET_ACCESS_KEY="2Uwn4ytbi2/M8S0mxsgr/MOb1uZBc"
+export AWS_SESSION_TOKEN="IQoJb3JpZ2luX2VjEHUaCBFAiEAlVtLXUzEUitpmLlHwCN4hik3GVRLivAadD7hwjhs5dPb16eKMUw2gl73Sz7bewr82o9nk3C3Qw"
 using System;
 using System.Threading.Tasks;
 using Grpc.Core;
