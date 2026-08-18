@@ -45,3 +45,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
     CMD node -e "process.exit(0)" || exit 1
 USER 1000
 ENTRYPOINT [ "node", "server.js" ]
+
