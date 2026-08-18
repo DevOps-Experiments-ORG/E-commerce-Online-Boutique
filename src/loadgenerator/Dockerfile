@@ -52,4 +52,7 @@ ENV GEVENT_SUPPORT=True
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
     CMD python -c "print('ok')" || exit 1
 USER 1000
-ENTRYPOINT locust --host="http://${FRONTEND_ADDR}" --headless -u "${USERS:-10}" -r "${RATE:-1}" 2>&1
+
+# ENTRYPOINT locust --host="http://${FRONTEND_ADDR}" --headless -u "${USERS:-10}" -r "${RATE:-1}" 2>&1
+
+ENTRYPOINT locust --host="http://${FRONTEND_ADDR}" --web-port=8089 -u "${USERS:-10}" -r "${RATE:-1}" 2>&1
