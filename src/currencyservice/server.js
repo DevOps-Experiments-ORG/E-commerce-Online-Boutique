@@ -30,13 +30,7 @@ if(process.env.DISABLE_PROFILER) {
   logger.info("Profiler disabled.")
 }
 else {
-  logger.info("Profiler enabled.")
-  require('@google-cloud/profiler').start({
-    serviceContext: {
-      service: 'currencyservice',
-      version: '1.0.0'
-    }
-  });
+  logger.info("Profiler disabled. @google-cloud/profiler removed (not needed on EKS).")
 }
 
 // Register GRPC OTel Instrumentation for trace propagation
