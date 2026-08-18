@@ -69,7 +69,6 @@ pipeline {
                     env.APP_NAME_RESOLVED = cfg.appName
                     env.APP_DIR            = cfg.appDir
                     env.SVC_TYPE           = cfg.svcType
-                    env.IMAGE_TAG          = cfg.imageTag
                     env.DOCKERFILE         = cfg.dockerfile
                     env.BUILD_CONTEXT      = cfg.buildContext
                     env.REGISTRY           = cfg.registry
@@ -82,7 +81,6 @@ pipeline {
     │  Service    : ${env.APP_NAME_RESOLVED}
     │  Type       : ${env.SVC_TYPE}
     │  Directory  : ${env.APP_DIR}
-    │  Image      : ${env.IMAGE_TAG}
     │  Branch     : ${env.BRANCH_NAME ?: 'main'}
     │  Dockerfile : ${env.DOCKERFILE}
     │  Context    : ${env.BUILD_CONTEXT}
@@ -103,6 +101,11 @@ pipeline {
                 checkout scm
 
                 sh "git config --global --add safe.directory '*'"
+
+                script {
+                    def shortSha = sh(script: "git rev-parse --short=7 HEAD", returnStdout: true).trim()
+                    env.IMAGE_TAG = "${env.REGISTRY}/${env.APP_NAME_RESOLVED}:v1.0.${env.BUILD_NUMBER}-${shortSha}"
+                }
             }
         }
 
