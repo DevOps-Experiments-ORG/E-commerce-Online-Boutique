@@ -1,3 +1,4 @@
+# Sample text
 plugins {
     id 'com.google.protobuf' version '0.10.0'
     id 'com.github.sherter.google-java-format' version '0.9'
